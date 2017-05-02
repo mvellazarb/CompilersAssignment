@@ -3,17 +3,10 @@
 
 #include <fstream>
 #include <sstream>
+#include "Token.h"
 
 
-enum TokenType { TOK_EOF, TOK_NUMBER, TOK_ARITHMETIC_OP };
 
-struct Token {
-    TokenType tokenType;
-    std::string name;
-    float value;
-    
-    
-};
 
 class Lexer {
     std::string program;
@@ -28,6 +21,8 @@ class Lexer {
         sstr << in.rdbuf();
         return sstr.str();
     }
+
+
     
 public:
     /**
@@ -35,6 +30,13 @@ public:
      * @param programFilename filename of program to read to string
      */
     Lexer(std::string programFilename);
+
+    /**
+     * Returns the next token.
+     * @return Next token.
+     */
+    Token nextToken();
+
 };
 
 #endif /* LEXER_H */

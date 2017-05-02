@@ -14,3 +14,8 @@ Lexer::Lexer(std::string programFilename) {
         exit(1);
     }
 }
+
+Token Lexer::nextToken() {
+    Token nextToken(TOK_EOF, "lol", 3);
+    return nextToken;
+}
