@@ -1,22 +1,13 @@
 #include <iostream>
 #include "Lexer.h"
+#include "Parser.h"
 
-std::ostream &operator<<(std::ostream &os, const Token& token) {
-    switch (token.tokenType) {
-        default:
-            return os << "TOKEN";
-    }
-}
 
 int main() {
     Lexer lexer("program.txt");
-    Token nextToken;
+    Parser parser;
 
-    do {
-
-        std::cout << lexer.nextToken();
-
-    } while (nextToken.tokenType != TOK_EOF);
+    parser.parse(lexer);
 
     return 0;
 }
